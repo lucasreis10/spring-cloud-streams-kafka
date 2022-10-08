@@ -1,4 +1,4 @@
-package com.example.kafka.application.converters;
+package com.example.kafka.infrastructure.kafka.converters;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.common.errors.SerializationException;

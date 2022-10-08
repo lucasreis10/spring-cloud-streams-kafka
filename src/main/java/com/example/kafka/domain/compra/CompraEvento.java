@@ -1,8 +1,8 @@
 package com.example.kafka.domain.compra;
 
-import com.example.kafka.infrastructure.kafka.EventoKafka;
+import com.example.kafka.infrastructure.kafka.DomainEvent;
 
-public class CompraEvento extends EventoKafka {
+public class CompraEvento extends DomainEvent {
 
     private String id;
     private String descricao;

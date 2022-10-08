@@ -1,6 +1,5 @@
-package com.example.kafka.application;
+package com.example.kafka.infrastructure.kafka;
 
-import com.example.kafka.infrastructure.kafka.EventoKafka;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,13 +8,13 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-public class KafkaProducer {
+public class DomainProducer {
 
     @Autowired
     private StreamBridge streamBridge;
-    private static final Logger LOGGER = LoggerFactory.getLogger(KafkaProducer.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DomainProducer.class);
 
-    public void sendMessage(EventoKafka evento) {
+    public void sendMessage(DomainEvent evento) {
         String BINDING_NAME = "producer-out-0";
         String payload = evento.converterToJson();
 
