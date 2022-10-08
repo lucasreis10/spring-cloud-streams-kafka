@@ -12,13 +12,13 @@ import org.springframework.stereotype.Service;
 public class CompraService {
 
     @Autowired
-    private DomainProducer kafkaDomainProducer;
+    private DomainProducer domainProducer;
 
     public void comprar(CompraDto dto) {
         Compra compra = Compra.from(dto.getDescricao(), dto.getValor());
 
         CompraEvento evento = CompraEvento.from(compra);
 
-        kafkaDomainProducer.sendMessage(evento);
+        domainProducer.sendMessage(evento);
     }
 }
