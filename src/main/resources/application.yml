@@ -18,10 +18,10 @@ spring:
 
       bindings:
         producer-out-0:
-          destination: first-topic
+          destination: first-topic # Topico para produção de eventos
           producer:
             useNativeEncoding: true # Habilita o uso do serializador personalizado
         consumer-in-0:
-          destination: first-topic
+          destination: first-topic # Topico de consumo de eventos
           consumer:
             use-native-decoding: true # Habilita o uso do desserializador personalizado
