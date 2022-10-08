@@ -19,8 +19,12 @@ public class DomainProducer {
         String payload = evento.converterToJson();
 
         streamBridge.send(BINDING_NAME, payload);
+        loggerInfoEventoEnviado(payload);
+    }
+
+    private void loggerInfoEventoEnviado(String payload) {
         LOGGER.info("### Evento enviado ###");
-        LOGGER.info("### payload: " + payload + " ###");
+        LOGGER.info("Payload: " + payload);
     }
 
 
