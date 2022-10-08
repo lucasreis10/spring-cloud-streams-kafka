@@ -1,9 +1,8 @@
-package com.example.kafka.domain.compra;
+package com.example.kafka.domain.evento;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CompraRepository extends MongoRepository<Compra, String> {
-
+public interface EventoRepository extends MongoRepository<Evento, String> {
 }
