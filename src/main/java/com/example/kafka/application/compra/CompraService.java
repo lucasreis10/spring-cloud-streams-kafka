@@ -24,13 +24,15 @@ public class CompraService {
         this.compraRepository = compraRepository;
     }
 
-    public void comprar(CompraDto dto) {
+    public CompraDto comprar(CompraDto dto) {
         Compra compra = Compra.from(dto.getDescricao(), dto.getValor());
-
-        compraRepository.save(compra);
-
         CompraEvento evento = CompraEvento.from(compra);
+
+        // TODO implementar pattern transactional outbox
+        compraRepository.save(compra);
         domainProducer.sendMessage(evento);
+
+        return new CompraDto(compra);
     }
 
     public List<CompraDto> listarCompras() {

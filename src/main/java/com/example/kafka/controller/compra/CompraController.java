@@ -19,8 +19,8 @@ public class CompraController {
     }
 
     @PostMapping
-    public void comprar(@RequestBody CompraDto dto) {
-        compraService.comprar(dto);
+    public CompraDto comprar(@RequestBody CompraDto dto) {
+        return compraService.comprar(dto);
     }
 
     @GetMapping

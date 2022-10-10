@@ -27,7 +27,6 @@ public class DomainProducer {
         String BINDING_NAME = "producer-out-0";
         String payload = evento.converterToJson();
 
-        // TODO implementar pattern transactional outbox
         eventoService.salvar(payload);
         streamBridge.send(BINDING_NAME, payload);
 
