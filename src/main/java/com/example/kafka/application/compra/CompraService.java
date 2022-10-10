@@ -15,8 +15,8 @@ import java.util.stream.Collectors;
 @Service
 public class CompraService {
 
-    private DomainProducer domainProducer;
-    private CompraRepository compraRepository;
+    private final DomainProducer domainProducer;
+    private final CompraRepository compraRepository;
 
     @Autowired
     public CompraService(DomainProducer domainProducer, CompraRepository compraRepository) {

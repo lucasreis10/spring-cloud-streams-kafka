@@ -1,5 +1,6 @@
 package com.example.kafka.domain.compra;
 
+import com.example.kafka.domain.DomainId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -20,7 +21,7 @@ public class Compra {
     }
 
     public static Compra from(String descricao, Float valor) {
-        var id = UUID.randomUUID().toString().toLowerCase();
+        var id = DomainId.gerarIUUID();
 
         return new Compra(id, descricao, valor);
     }

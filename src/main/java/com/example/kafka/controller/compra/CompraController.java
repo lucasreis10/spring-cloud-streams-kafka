@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("/compras")
 public class CompraController {
 
-    final private CompraService compraService;
+    private final CompraService compraService;
 
     @Autowired
     public CompraController(CompraService compraService) {
