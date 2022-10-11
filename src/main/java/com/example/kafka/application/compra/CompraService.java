@@ -25,7 +25,7 @@ public class CompraService {
     }
 
     public CompraDto comprar(CompraDto dto) {
-        Compra compra = Compra.from(dto.getDescricao(), dto.getValor());
+        Compra compra = Compra.newCompra(dto.getDescricao(), dto.getValor());
         CompraEvento evento = CompraEvento.from(compra);
 
         // TODO implementar pattern transactional outbox

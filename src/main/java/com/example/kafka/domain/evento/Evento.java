@@ -10,9 +10,9 @@ import java.time.Instant;
 public class Evento {
 
     @Id
-    private String id;
-    private String payload;
-    private Instant dataEvento;
+    private final String id;
+    private final String payload;
+    private final Instant dataEvento;
 
 
     private Evento(String id, String payload, Instant dataEvento) {
@@ -21,7 +21,7 @@ public class Evento {
         this.dataEvento = dataEvento;
     }
 
-    public static Evento from(String payload) {
+    public static Evento newEvento(String payload) {
         var id = DomainId.gerarIUUID();
         var now = Instant.now();
 
@@ -42,5 +42,9 @@ public class Evento {
 
     public String getPayload() {
         return payload;
+    }
+
+    public Instant getDataEvento() {
+        return dataEvento;
     }
 }

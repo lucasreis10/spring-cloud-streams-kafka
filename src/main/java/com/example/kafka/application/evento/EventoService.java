@@ -16,7 +16,7 @@ public class EventoService {
     }
 
     public void salvar(String payload) {
-        var evento = Evento.from(payload);
+        var evento = Evento.newEvento(payload);
 
         eventoRepository.save(evento);
     }

@@ -4,9 +4,9 @@ import com.example.kafka.infrastructure.kafka.DomainEvent;
 
 public class CompraEvento extends DomainEvent {
 
-    private String id;
-    private String descricao;
-    private Float valor;
+    private final String id;
+    private final String descricao;
+    private final Float valor;
 
 
     private CompraEvento(String id, String descricao, Float valor) {
