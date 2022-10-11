@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 services:
   zookeeper:
     image: wurstmeister/zookeeper
@@ -14,7 +14,7 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_CREATE_TOPICS: "first-topic:1:1"
 
-  mongodb:
+  mongo:
     image: mongo
     ports:
       - 27017:27017
@@ -22,14 +22,20 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=123456
       - MONGO_INITDB_DATABASE=demo_db
+    restart: unless-stopped
+    volumes:
+      - ./database/db:/data/db
 
-  mongo-express:
+  mongoexpress:
     image: mongo-express
     ports:
-      - 8888:8081
+      - "8081:8081"
+    links:
+      - mongo
     environment:
       - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
       - ME_CONFIG_MONGODB_ADMINPASSWORD=123456
-      - ME_CONFIG_MONGODB_SERVER=mongodb
+      - ME_CONFIG_MONGODB_URL=mongodb://admin:123456@mongo:27017
     depends_on:
-      - mongodb
+      - mongo
+    restart: unless-stopped
